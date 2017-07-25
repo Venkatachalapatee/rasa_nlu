@@ -16,10 +16,12 @@ from typing import Type
 
 from rasa_nlu.classifiers.keyword_intent_classifier import KeywordIntentClassifier
 from rasa_nlu.classifiers.mitie_intent_classifier import MitieIntentClassifier
+from rasa_nlu.extractors.dnn_intent_classifier import DNNIntentClassifier
 from rasa_nlu.classifiers.sklearn_intent_classifier import SklearnIntentClassifier
 from rasa_nlu.extractors.duckling_extractor import DucklingExtractor
 from rasa_nlu.extractors.entity_synonyms import EntitySynonymMapper
 from rasa_nlu.extractors.mitie_entity_extractor import MitieEntityExtractor
+
 from rasa_nlu.extractors.spacy_entity_extractor import SpacyEntityExtractor
 from rasa_nlu.extractors.crf_entity_extractor import CRFEntityExtractor
 from rasa_nlu.featurizers.mitie_featurizer import MitieFeaturizer
@@ -45,6 +47,7 @@ component_classes = [
     SpacyFeaturizer, MitieFeaturizer, NGramFeaturizer, RegexFeaturizer,
     MitieTokenizer, SpacyTokenizer, WhitespaceTokenizer,
     SklearnIntentClassifier, MitieIntentClassifier, KeywordIntentClassifier,
+    DNNIntentClassifier
 ]
 
 # Mapping from a components name to its class to allow name based lookup.
@@ -79,6 +82,15 @@ registered_pipeline_templates = {
         "intent_entity_featurizer_regex",
         "intent_featurizer_mitie",
         "intent_classifier_sklearn",
+    ],
+    "mitie_dnn": [
+        "nlp_mitie",
+        "tokenizer_mitie",
+        "ner_mitie",
+        "ner_synonyms",
+        "intent_entity_featurizer_regex",
+        "intent_featurizer_mitie",
+        "intent_classifier_dnn",
     ],
     "keyword": [
         "intent_classifier_keyword",

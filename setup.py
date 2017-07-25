@@ -30,6 +30,7 @@ extras_requires = {
     'test': tests_requires,
     'spacy': ["sklearn", "scipy", "numpy"],
     'mitie': ["mitie", "numpy"],
+    'dnn': ["tensorflow", "tflearn", "nltk"]
 }
 
 setup(
