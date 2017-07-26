@@ -45,6 +45,9 @@ class DNNIntentClassifier(Component):
         trainer.num_threads = config["num_threads"]
         for example in training_data.intent_examples:
             tokens = self._tokens_of_message(example)
+            print("In Training")
+            print(tokens)
+            print(example.get("intent"))
             trainer.add_labeled_text(tokens, example.get("intent"))
 
         if training_data.intent_examples:
@@ -79,9 +82,9 @@ class DNNIntentClassifier(Component):
         if model_dir and model_metadata.get("intent_classifier_mitie"):
             classifier_file = os.path.join(model_dir, model_metadata.get("intent_classifier_mitie"))
             classifier = mitie.text_categorizer(classifier_file)
-            return MitieIntentClassifier(classifier)
+            return DNNIntentClassifier(classifier)
         else:
-            return MitieIntentClassifier()
+            return DNNIntentClassifier()
 
     def persist(self, model_dir):
         # type: (Text) -> Dict[Text, Any]

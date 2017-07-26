@@ -16,7 +16,7 @@ from typing import Type
 
 from rasa_nlu.classifiers.keyword_intent_classifier import KeywordIntentClassifier
 from rasa_nlu.classifiers.mitie_intent_classifier import MitieIntentClassifier
-from rasa_nlu.extractors.dnn_intent_classifier import DNNIntentClassifier
+from rasa_nlu.classifiers.dnn_intent_classifier import DNNIntentClassifier
 from rasa_nlu.classifiers.sklearn_intent_classifier import SklearnIntentClassifier
 from rasa_nlu.extractors.duckling_extractor import DucklingExtractor
 from rasa_nlu.extractors.entity_synonyms import EntitySynonymMapper
